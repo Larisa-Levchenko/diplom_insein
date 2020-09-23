@@ -1,0 +1,9 @@
+.header-contacts__phone-number-accord.active{
+    top: 25px;
+}
+.header-contacts__phone-number.active{
+    opacity: 1;
+}
+.popup-dialog-menu.active{
+    right: 650px;
+}
