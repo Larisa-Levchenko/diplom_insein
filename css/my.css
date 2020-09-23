@@ -7,3 +7,6 @@
 .popup-dialog-menu.active{
     right: 650px;
 }
+.popup-dialog-menu.active-mini{
+    top: 600px;
+}
