@@ -1,12 +1,22 @@
-.header-contacts__phone-number-accord.active{
+.header-contacts__phone-number-accord.active {
     top: 25px;
 }
-.header-contacts__phone-number.active{
+
+.header-contacts__phone-number.active {
     opacity: 1;
 }
-.popup-dialog-menu.active{
-    right: 650px;
+
+.popup-dialog-menu.active {
+    right: 639px;
 }
-.popup-dialog-menu.active-mini{
-    top: 600px;
+
+@media (max-width: 1024px) {
+    .popup-dialog-menu.active {
+        right: 549px;
+    }
+}
+@media (max-width: 576px) {
+    .popup-dialog-menu.active {
+       top:100%;
+    }
 }
