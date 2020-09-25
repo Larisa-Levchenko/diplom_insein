@@ -20,3 +20,15 @@
        top:100%;
     }
 }
+
+.problems-item-popup.active:before{
+    transform: rotate(180deg);
+    bottom: -90px;
+}
+.formula-item-popup.active:before{
+    transform: rotate(180deg); 
+    
+}
+.formula-item-popup.active{  
+    top: 90px;   
+}
