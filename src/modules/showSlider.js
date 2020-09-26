@@ -44,6 +44,11 @@ const showSlider = () => {
         documentSlider.classList.add('adaptive');
     }
 
+    if (screen.width > 1091) {
+        documentSlider.classList.add('row');
+        documentSlider.classList.remove('adaptive');
+    }
+
     documents.addEventListener('click', (event) => {        
         positionDocument = slider(
             event.target,
