@@ -23,11 +23,12 @@
 
 .problems-item-popup.active:before{
     transform: rotate(180deg);
+    background-size: contain;
     bottom: -90px;
 }
 .formula-item-popup.active:before{
     transform: rotate(180deg); 
-    
+    background-size: contain;
 }
 .formula-item-popup.active{  
     top: 90px;   

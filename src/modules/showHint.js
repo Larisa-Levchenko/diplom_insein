@@ -8,19 +8,19 @@ const showHint = () => {
         items.forEach((item) => {
             const inner = item.previousElementSibling;
             const hint = inner.previousElementSibling;
-            item.addEventListener('mouseover', () => {                             
+            item.addEventListener('mouseover', () => { 
                 inner.classList.add('active-item');
-                hint.style.visibility = 'visible';
-                hint.style.opacity = '1';
-                if (hint.getBoundingClientRect().top < 0) {
-                    hint.classList.add('active');
+                if (hint.getBoundingClientRect().top > 0) {                    
+                    hint.style.visibility = 'visible';
+                    hint.style.opacity = '1';                    
                 }
+                //hint.classList.add('active');
             });
             item.addEventListener('mouseout', () => {
-                inner.classList.remove('active-item');
-                hint.classList.remove('active');
+                inner.classList.remove('active-item');                
                 hint.style.visibility = '';
                 hint.style.opacity = '';
+                //hint.classList.remove('active');
             });
         });
     };

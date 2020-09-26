@@ -8,6 +8,8 @@ import showPopup from "./modules/showPopup.js";
 import showSlider from "./modules/showSlider.js";
 import schemeSlider from "./modules/schemeSlider.js";
 import partnersSlider from "./modules/partnersSlider.js";
+import showAccordion from "./modules/showAccordion.js";
+import designSlider from "./modules/designSlider.js";
 
 showPhone();
 toggleMenu();
@@ -17,3 +19,5 @@ showPopup();
 showSlider();
 schemeSlider();
 partnersSlider();
+showAccordion();
+designSlider();

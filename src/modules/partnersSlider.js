@@ -21,7 +21,6 @@ const partnersSlider = () => {
                     positionPartners = 0;
                 }
             }
-            console.log(positionPartners);
             slidePartners.forEach((item) => {
                 item.style.transform = `translateY(-${positionPartners*slideHeight}px)`;
             });

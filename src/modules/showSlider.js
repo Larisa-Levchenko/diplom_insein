@@ -34,8 +34,7 @@ const showSlider = () => {
     });    
 
     const documentSlider = document.querySelector('.transparency-slider');
-    const documents = document.querySelector('.transparency');
-    console.log();
+    const documents = document.querySelector('.transparency');   
     let positionDocument = 0;
     const slideDocument = document.querySelectorAll('.transparency-item');
 
