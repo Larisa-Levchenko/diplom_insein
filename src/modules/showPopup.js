@@ -7,9 +7,7 @@ const showPopup = () => {
 
   document.body.addEventListener('click', (event) => {
     const target = event.target;
-    if (
-      target.closest('.no-overflow') !== null ||
-      target.closest('.link-list-repair') !== null ||
+    if (    
       target.closest('.link-privacy') !== null ||
       target.closest('.button_wide') !== null ||
       target.closest('.link-list-designs') !== null
@@ -20,13 +18,8 @@ const showPopup = () => {
         popupConsultation.style.visibility = 'visible';
       } else if (target.closest('.link-list-designs') !== null) {        
         popupDesign.style.visibility = 'visible';
-      } else {
-        popupRepair.style.visibility = 'visible';
       }
-    } else {
-      if (target.closest('.popup-dialog') === null) {
-        popupRepair.style.visibility = '';
-      }
+    } else {      
       if (target.closest('.popup-dialog-privacy') === null) {
         popupPrivacy.style.visibility = '';
       }

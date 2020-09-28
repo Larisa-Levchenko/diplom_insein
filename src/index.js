@@ -8,6 +8,7 @@ import schemeSlider from "./modules/schemeSlider.js";
 import designSlider from "./modules/designSlider.js";
 import dotSlider from "./modules/dotSlider.js";
 import toggleMenu from "./modules/toggleMenu.js";
+import repairPopup from "./modules/repairPopup.js";
 
 import phoneValidator from "./modules/phoneValidator.js";
 import showHint from "./modules/showHint.js";
@@ -24,6 +25,7 @@ schemeSlider();
 designSlider();
 dotSlider();
 toggleMenu();
+repairPopup();
 
 phoneValidator();
 showHint();
