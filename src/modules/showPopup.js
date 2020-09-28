@@ -1,5 +1,4 @@
-const showPopup = () => {
-  const popupRepair = document.querySelector('.popup-repair-types');
+const showPopup = () => { 
   const popupPrivacy = document.querySelector('.popup-privacy');
   const popupConsultation = document.querySelector('.popup-consultation');
   const popupDesign = document.querySelector('.popup-design');

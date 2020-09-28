@@ -10,6 +10,7 @@ import dotSlider from "./modules/dotSlider.js";
 import toggleMenu from "./modules/toggleMenu.js";
 import repairPopup from "./modules/repairPopup.js";
 
+import portfolioSlider from "./modules/portfolioSlider.js";
 import phoneValidator from "./modules/phoneValidator.js";
 import showHint from "./modules/showHint.js";
 import partnersSlider from "./modules/partnersSlider.js";
@@ -27,6 +28,7 @@ dotSlider();
 toggleMenu();
 repairPopup();
 
+portfolioSlider();
 phoneValidator();
 showHint();
 partnersSlider();
