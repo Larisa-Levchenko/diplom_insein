@@ -1,6 +1,12 @@
 const showSlider = () => {
-    const slider = (target, slide, position, arrowLeft, arrowRight) => {
+    const transformSlide = (slide,position) =>{
         const slideHeight = slide[0].getBoundingClientRect().height;
+        slide.forEach((item) => {
+            item.style.transform = `translateY(-${position*slideHeight}px)`;
+        });
+    };
+    const slider = (target, slide, position, arrowLeft, arrowRight) => {
+        
         if (target.closest(`${arrowLeft}`) || target.closest(`${arrowRight}`)) {
             if (target.closest(`${arrowLeft}`)) {
                 if (position > 0) {
@@ -12,12 +18,12 @@ const showSlider = () => {
                     position++;
                 }
             }
-            slide.forEach((item) => {
-                item.style.transform = `translateY(-${position*slideHeight}px)`;
-            });
+            transformSlide(slide, position);
         }
         return position;
-    }; 
+    };
+
+    //reviews
 
     const reviews = document.querySelector('.reviews');
     let positionReviews = 0;
@@ -25,32 +31,47 @@ const showSlider = () => {
 
     reviews.addEventListener('click', (event) => {
         positionReviews = slider(
-          event.target,
-          slideReviews,
-          positionReviews,
-          "#reviews-arrow_left",
-          "#reviews-arrow_right"
+            event.target,
+            slideReviews,
+            positionReviews,
+            "#reviews-arrow_left",
+            "#reviews-arrow_right"
         );
-    });    
+    });
 
+
+    //documents
     const documentSlider = document.querySelector('.transparency-slider');
-    const documents = document.querySelector('.transparency');   
+    const documents = document.querySelector('.transparency');
     let positionDocument = 0;
     const slideDocument = document.querySelectorAll('.transparency-item');
 
-    if (screen.width < 1091) {
-        documentSlider.classList.remove('row');
-        documentSlider.classList.add('adaptive');
-    }
+    const documentsPopup = document.querySelector('.popup-transparency');
+    let positionDocumentPopup = 0;
+    const slideDocumentPopup = document.querySelectorAll('.popup-transparency-slider__slide');
+    const documentPopupCounter = document.querySelector('#transparency-popup-counter');
+    const documentPopupTotal = documentPopupCounter.querySelector('.slider-counter-content__total');
+    const documentPopupCurrent = documentPopupCounter.querySelector('.slider-counter-content__current');
 
-    if (screen.width > 1091) {
-        documentSlider.classList.add('row');
-        documentSlider.classList.remove('adaptive');
-    }
+    documentPopupTotal.innerHTML = slideDocumentPopup.length;    
+    //
 
-    documents.addEventListener('click', (event) => {        
+    documents.addEventListener('click', (event) => {
+        let target = event.target;
+        if (target.closest('.transparency-item__img') !== null) {
+            documentsPopup.style.visibility = 'visible';
+            target = target.closest('.transparency-item');
+            slideDocument.forEach((item, index) => {
+                if(item===target){
+                    positionDocumentPopup=index;
+                    transformSlide(slideDocumentPopup, positionDocumentPopup);
+                    documentPopupCurrent.innerHTML = positionDocumentPopup + 1;
+                }
+            });
+
+        }
         positionDocument = slider(
-            event.target,
+            target,
             slideDocument,
             positionDocument,
             '#transparency-arrow_left',
@@ -58,47 +79,22 @@ const showSlider = () => {
         );
     });
 
-    const documentsPopup = document.querySelector('.popup-dialog-transparency');
-    let positionDocumentPopup = 0;
-    const slideDocumentPopup = document.querySelectorAll('.popup-transparency-slider__slide');
-
     documentsPopup.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target.closest('.popup-dialog-transparency') === null) {
+            documentsPopup.style.visibility = '';
+        }
+
         positionDocumentPopup = slider(
-            event.target,
+            target,
             slideDocumentPopup,
             positionDocumentPopup,
             "#transparency_left",
             "#transparency_right"
         );
+        documentPopupCurrent.innerHTML = positionDocumentPopup + 1;
     });
-
-    const repairSlider = document.querySelector('.types-repair1');
-
-    const repair = document.querySelector('.repair-types');
-    let positionRepair = 0;
-    const slideRepair = repairSlider.querySelectorAll('.repair-types-slider__slide');
-
-    repair.addEventListener('click', (event) => {
-        positionRepair = slider(
-            event.target,
-            slideRepair,
-            positionRepair,
-            "#repair-types-arrow_left",
-            "#repair-types-arrow_right"
-        );
-    });
-
-    const designsSlider = document.querySelector('.designs-slider__style1');
-
-    const designs = document.querySelector('.designs');
-    let positionDesign = 0;
-    const slideDesign = designsSlider.querySelectorAll('.designs-slider__style-slide');
-    //const countDesign = document.querySelector('.slider-counter-content__current');
-
-    designs.addEventListener('click', (event) => {
-        positionDesign = slider(event.target, slideDesign, positionDesign, '#design_left', '#design_right');
-    });
-    
+   
 
 };
 

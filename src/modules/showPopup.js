@@ -2,7 +2,8 @@ const showPopup = () => {
   const popupRepair = document.querySelector('.popup-repair-types');
   const popupPrivacy = document.querySelector('.popup-privacy');
   const popupConsultation = document.querySelector('.popup-consultation');
-  const popupDoc = document.querySelector('.popup-transparency');
+  const popupDesign = document.querySelector('.popup-design');
+
 
   document.body.addEventListener('click', (event) => {
     const target = event.target;
@@ -11,14 +12,14 @@ const showPopup = () => {
       target.closest('.link-list-repair') !== null ||
       target.closest('.link-privacy') !== null ||
       target.closest('.button_wide') !== null ||
-      target.closest('.transparency-item__img') !== null
+      target.closest('.link-list-designs') !== null
     ) {
       if (target.closest('.link-privacy') !== null) {
         popupPrivacy.style.visibility = 'visible';
       } else if (target.closest('.button_wide') !== null) {
         popupConsultation.style.visibility = 'visible';
-      } else if (target.closest('.transparency-item__img') !== null) {
-        popupDoc.style.visibility = 'visible';
+      } else if (target.closest('.link-list-designs') !== null) {        
+        popupDesign.style.visibility = 'visible';
       } else {
         popupRepair.style.visibility = 'visible';
       }
@@ -31,9 +32,9 @@ const showPopup = () => {
       }
       if (target.closest('.feedback-wrap') === null || target.closest('.close-consultation') !== null) {
         popupConsultation.style.visibility = '';
-      }
-      if (target.closest('.popup-dialog-transparency') === null){
-         popupDoc.style.visibility = '';
+      } 
+      if (target.closest('.popup-dialog-design') === null) {
+        popupDesign.style.visibility = '';
       }
     }
   });
