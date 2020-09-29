@@ -1,5 +1,12 @@
 'use strict';
 
+import "@babel/polyfill";
+import 'nodelist-foreach-polyfill';
+import elementClosest from 'element-closest';
+elementClosest(window);
+import 'formdata-polyfill';
+import 'dom-node-polyfills';
+
 import showPhone from "./modules/showPhone.js";
 import showPopup from "./modules/showPopup.js";
 import showAccordion from "./modules/showAccordion.js";
@@ -16,11 +23,6 @@ import portfolioSlider from "./modules/portfolioSlider.js";
 import phoneValidator from "./modules/phoneValidator.js";
 import showHint from "./modules/showHint.js";
 import partnersSlider from "./modules/partnersSlider.js";
-
-
-
-
-
 
 showPhone();
 showPopup();

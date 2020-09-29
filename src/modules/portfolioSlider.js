@@ -1,4 +1,4 @@
-const portfolioSlider = () =>{
+const portfolioSlider = () => {
     const portfolio = document.querySelector('.portfolio');
     const portfolioSlider = document.querySelector('.portfolio-slider');
     const slidePortfolio = portfolioSlider.querySelectorAll('.portfolio-slider__slide-frame');
@@ -6,9 +6,9 @@ const portfolioSlider = () =>{
     const portfolioArrowLeft = document.getElementById('portfolio-arrow_left');
     const portfolioArrowRight = document.getElementById('portfolio-arrow_right');
     let positionPortfolio = 0;
-    
+
     const portfolioMobile = document.querySelector('.portfolio-slider-mobile');
-    const slidePortfolioMobile = portfolioMobile.querySelectorAll('.portfolio-slider__slide-frame');    
+    const slidePortfolioMobile = portfolioMobile.querySelectorAll('.portfolio-slider__slide-frame');
     const portfolioTotal = portfolio.querySelector('.slider-counter-content__total');
     const portfolioCurrent = portfolio.querySelector('.slider-counter-content__current');
     const portfolioMobileArrowLeft = document.getElementById('portfolio-arrow-mobile_left');
@@ -20,27 +20,27 @@ const portfolioSlider = () =>{
     const portfolioPopup = document.querySelector('.popup-portfolio');
     const portfolioPopupSlide = document.querySelectorAll('.popup-portfolio-slider__slide');
     const portfolioPopupText = document.querySelectorAll('.popup-portfolio-text');
-    const portfolioPopupArrowLeft = document.getElementById('popup_portfolio_left');
-    const portfolioPopupArrowRight = document.getElementById('popup_portfolio_right');
+    //const portfolioPopupArrowLeft = document.getElementById('popup_design_left');
+    //const portfolioPopupArrowRight = document.getElementById('popup_design_right');
+    let positionPortfolioPopup;
 
-    console.log(portfolioPopupArrowLeft);
     const transformPopup = (position) => {
-        //const slideHeight = portfolioPopupSlide[0].getBoundingClientRect().height;
-        //portfolioPopupSlide.forEach((item) => {
-        //    item.style.transform = `translateY(-${position*slideHeight}px)`;
-        //});
-        portfolioPopupText.forEach((item,index)=>{
-            if(index===position){
-                item.style.display='flex';
-            }else{
+        const slideHeight = portfolioPopupSlide[0].getBoundingClientRect().height;
+        portfolioPopupSlide.forEach((item) => {
+            item.style.transform = `translateY(-${position*slideHeight}px)`;
+        });       
+        portfolioPopupText.forEach((item, index) => {
+            if (index === position) {
+                item.style.display = 'block';
+            } else {
                 item.style.display = 'none';
             }
 
-        });
+        });       
     };
 
     portfolio.addEventListener('click', (event) => {
-        const target = event.target;       
+        const target = event.target;
 
         if (target.closest('#portfolio-arrow_right') !== null || target.closest('#portfolio-arrow_left') !== null) {
             const slideWidth = slideBlockPortfolio[0].getBoundingClientRect().width;
@@ -69,23 +69,23 @@ const portfolioSlider = () =>{
                 item.style.transform = `translateX(-${positionPortfolio*slideWidth}px)`;
             });
         }
-        
+
         if (target.closest('#portfolio-arrow-mobile_right') !== null || target.closest('#portfolio-arrow-mobile_left') !== null) {
             const slideHeight = slidePortfolioMobile[0].getBoundingClientRect().height;
             if (target.closest('#portfolio-arrow-mobile_left') !== null) {
                 if (positionPortfolioMobile > 0) {
-                    positionPortfolioMobile--; 
+                    positionPortfolioMobile--;
                     portfolioMobileArrowRight.style.display = 'block';
-                    if (positionPortfolioMobile === 0){
-                        portfolioMobileArrowLeft.style.display = 'none';                        
+                    if (positionPortfolioMobile === 0) {
+                        portfolioMobileArrowLeft.style.display = 'none';
                     }
                 }
             }
             if (target.closest('#portfolio-arrow-mobile_right') !== null) {
-                if (positionPortfolioMobile < slidePortfolioMobile.length-1) {
+                if (positionPortfolioMobile < slidePortfolioMobile.length - 1) {
                     positionPortfolioMobile++;
                     portfolioMobileArrowLeft.style.display = 'block';
-                    if (positionPortfolioMobile === slidePortfolioMobile.length - 1){
+                    if (positionPortfolioMobile === slidePortfolioMobile.length - 1) {
                         portfolioMobileArrowRight.style.display = 'none';
                     }
                 }
@@ -94,30 +94,50 @@ const portfolioSlider = () =>{
             portfolioCurrent.innerHTML = positionPortfolioMobile + 1;
             slidePortfolioMobile.forEach((item) => {
                 item.style.transform = `translateY(-${
-              slideHeight * positionPortfolioMobile}px`;             
-             
+              slideHeight * positionPortfolioMobile}px`;
+
             });
-            
+
         } else if (target.closest('.portfolio-slider__slide-frame') !== null) {
             portfolioPopup.style.visibility = 'visible';
-            if(screen.width>574){
+            if (screen.width > 574) {
                 slidePortfolio.forEach((item, index) => {
                     if (item === target) {
-                        console.log(index);
-                        transformPopup(index);
+                        positionPortfolioPopup=index;
+                        transformPopup(positionPortfolioPopup);
+                        //portfolioPopupArrowLeft.style.visibility = 'visible';
+                        //portfolioPopupArrowRight.style.visibility = 'visible';
+                        //portfolioPopupArrowRight.style.pointerEvents='auto';
+                        
                     }
                 });
             }
-            
-
         }
     });
 
     portfolioPopup.addEventListener('click', (event) => {
         const target = event.target;
         if (target.closest('.popup-dialog-portfolio') === null) {
-             portfolioPopup.style.visibility = '';
+            portfolioPopup.style.visibility = '';           
         }
+        
+        //if (target.closest('#popup_design_left') !== null) {
+           
+        //    if (positionPortfolioPopup>0){
+        //        positionPortfolioPopup--;
+                
+        //        transformPopup(positionPortfolioPopup);
+        //    }
+
+        //}
+        //if (target.closest('.popup-arrow_right') !== null) {
+        //     console.log('j');
+        //    if (positionPortfolioPopup < portfolioPopupSlide.length-1) {
+        //        positionPortfolioPopup++;
+        //        transformPopup(positionPortfolioPopup);
+        //    }
+
+        //}
     });
 
 
