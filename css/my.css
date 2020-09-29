@@ -85,3 +85,9 @@
 /*.partners-slider__slide{
     flex-basis: 30%;
 }*/
+#portfolio-arrow-mobile_right{
+    z-index:99;
+}
+#portfolio-arrow-mobile_left {
+    z-index: 99;
+}
