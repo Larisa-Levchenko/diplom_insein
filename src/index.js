@@ -9,11 +9,13 @@ import designSlider from "./modules/designSlider.js";
 import dotSlider from "./modules/dotSlider.js";
 import toggleMenu from "./modules/toggleMenu.js";
 import repairPopup from "./modules/repairPopup.js";
+import repairSlider from "./modules/repairSlider.js";
 
 import portfolioSlider from "./modules/portfolioSlider.js";
 import phoneValidator from "./modules/phoneValidator.js";
 import showHint from "./modules/showHint.js";
 import partnersSlider from "./modules/partnersSlider.js";
+
 
 
 
@@ -27,6 +29,7 @@ designSlider();
 dotSlider();
 toggleMenu();
 repairPopup();
+repairSlider();
 
 portfolioSlider();
 phoneValidator();
