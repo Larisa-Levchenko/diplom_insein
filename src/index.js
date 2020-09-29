@@ -16,6 +16,8 @@ import phoneValidator from "./modules/phoneValidator.js";
 import showHint from "./modules/showHint.js";
 import partnersSlider from "./modules/partnersSlider.js";
 
+import sendForm from "./modules/sendForm.js";
+sendForm();
 
 
 
