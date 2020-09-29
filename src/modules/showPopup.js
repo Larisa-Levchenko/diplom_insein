@@ -4,7 +4,6 @@ const showPopup = () => {
   const popupDesign = document.querySelector('.popup-design');
   const popupThank = document.querySelector('.popup-thank');
 
-
   document.body.addEventListener('click', (event) => {
     const target = event.target;
     if (

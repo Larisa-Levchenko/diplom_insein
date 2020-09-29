@@ -6,7 +6,6 @@ const designSlider = () => {
     const designPreviewSlide = document.querySelectorAll('.preview-block__item-inner');
     const designTotal = design.querySelector('.slider-counter-content__total');
     const designCurrent = design.querySelector('.slider-counter-content__current');
-
     let positionDesign = 0;
     let positionDesignDot = 0;
 
@@ -45,14 +44,14 @@ const designSlider = () => {
         const target = event.target;
         const slideHeight = designSlide[0].getBoundingClientRect().height;
         if (
-          target.closest(".designs-nav__item_base") !== null ||
-          target.closest(".preview-block__item-inner") !== null ||
-          target.closest("#design_left") !== null ||
-          target.closest("#design_right") !== null
+          target.closest('.designs-nav__item_base') !== null ||
+          target.closest('.preview-block__item-inner') !== null ||
+          target.closest('#design_left') !== null ||
+          target.closest('#design_right') !== null
         ) {
-          if (target.closest(".designs-nav__item_base") !== null) {
+          if (target.closest('.designs-nav__item_base') !== null) {
               designPreview.forEach((item) => {
-                  item.classList.remove("visible");
+                  item.classList.remove('visible');
               });
               positionDesignDot = getDot(
                   target,
@@ -60,11 +59,11 @@ const designSlider = () => {
                   designTotal,
                   designCurrent
               );
-              designPreview[positionDesignDot].classList.add("visible");
+              designPreview[positionDesignDot].classList.add('visible');
               positionDesign = getPosition(positionDesignDot);
           }
 
-          if (target.closest(".preview-block__item-inner") !== null) {
+          if (target.closest('.preview-block__item-inner') !== null) {
             designPreviewSlide.forEach((item, index) => {
               if (item === target) {
                 positionDesign = index;
@@ -107,11 +106,11 @@ const designSlider = () => {
         const target = event.target;
         const slideHeight = designPopupSlide[0].getBoundingClientRect().height;
         if (
-          target.closest(".designs-nav__item_popup") !== null ||
-          target.closest("#popup_design_right") !== null ||
-          target.closest("#popup_design_left") !== null
+          target.closest('.designs-nav__item_popup') !== null ||
+          target.closest('#popup_design_right') !== null ||
+          target.closest('#popup_design_left') !== null
         ) {
-           if (target.closest(".designs-nav__item_popup") !== null){
+           if (target.closest('.designs-nav__item_popup') !== null){
                 positionDesignPopupDot = getDot(
                     target,
                     designPopupDot,
@@ -122,20 +121,20 @@ const designSlider = () => {
 
                 designPopupBlock.forEach((item, index) => {
                     if (index === positionDesignPopupDot) {
-                        item.classList.add("visible-content-block");
+                        item.classList.add('visible-content-block');
                     } else {
-                        item.classList.remove("visible-content-block");
+                        item.classList.remove('visible-content-block');
                     }
                 });
            }
-           if (target.closest("#popup_design_right") !== null) {
+           if (target.closest('#popup_design_right') !== null) {
                 if (+designPopupCurrent.innerHTML < arrDesign[positionDesignPopupDot]) {
                     positionDesignPopup++;
                     designPopupCurrent.innerHTML = positionDesignPopup - getPosition(positionDesignPopupDot) + 1;
                 }
            }
 
-           if (target.closest("#popup_design_left") !== null) {
+           if (target.closest('#popup_design_left') !== null) {
                 if (+designPopupCurrent.innerHTML > 1) {
                     positionDesignPopup--;
                     designPopupCurrent.innerHTML = positionDesignPopup - getPosition(positionDesignPopupDot) + 1;

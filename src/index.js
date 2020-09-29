@@ -10,14 +10,15 @@ import dotSlider from "./modules/dotSlider.js";
 import toggleMenu from "./modules/toggleMenu.js";
 import repairPopup from "./modules/repairPopup.js";
 import repairSlider from "./modules/repairSlider.js";
+import sendForm from "./modules/sendForm.js";
 
 import portfolioSlider from "./modules/portfolioSlider.js";
 import phoneValidator from "./modules/phoneValidator.js";
 import showHint from "./modules/showHint.js";
 import partnersSlider from "./modules/partnersSlider.js";
 
-import sendForm from "./modules/sendForm.js";
-sendForm();
+
+
 
 
 
@@ -32,6 +33,7 @@ dotSlider();
 toggleMenu();
 repairPopup();
 repairSlider();
+sendForm();
 
 portfolioSlider();
 phoneValidator();

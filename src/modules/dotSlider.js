@@ -19,9 +19,11 @@ const dotSlider = () => {
         return position;
     };
 
+    //design
     const design = document.querySelector('.designs');
     const designDot = document.querySelectorAll('.designs-nav__item_base');
     let positionDesignDot = 0;
+
     design.addEventListener('click', (event) => {
         positionDesignDot = sliderDot(
             event.target,
@@ -32,9 +34,11 @@ const dotSlider = () => {
         );
     });
 
+    //designPopup
     const designPopup = document.querySelector('.popup-design');
     const designPopupDot = document.querySelectorAll('.designs-nav__item');
     let positionDesignPopupDot = 0;
+
     designPopup.addEventListener('click', (event) => {
         positionDesignPopupDot = sliderDot(
             event.target,
@@ -45,6 +49,7 @@ const dotSlider = () => {
         );
     });
 
+    //scheme
     const scheme = document.querySelector('.scheme');
     const schemeDot = document.querySelectorAll('.scheme-nav__item');
     let positionSchemeDot = 0;
@@ -57,9 +62,9 @@ const dotSlider = () => {
             '#nav-arrow-scheme_left',
             '#nav-arrow-scheme_right'
         );
-
     });
 
+    //repair
     const repair = document.querySelector('.repair-types');
     const repairDot = document.querySelectorAll('.repair-types-nav__item');
     let positionRepairDot = 0;
@@ -72,7 +77,6 @@ const dotSlider = () => {
             '#nav-arrow-repair-left_base',
             '#nav-arrow-repair-right_base'
         );
-
     });
 
 };
