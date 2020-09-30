@@ -32,7 +32,7 @@
 
 @media (max-width: 1091px) {
     .transparency-slider-wrap {
-        height: 412px;
+        /*height: 412px;*/
         overflow: hidden;
     }
 
@@ -64,8 +64,7 @@
     }
 }
 
-.partners-slider {
-    height: 153px;
+.partners-slider {   
     overflow: hidden;
 }
 

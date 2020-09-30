@@ -1,11 +1,16 @@
 const partnersSlider = () => {
     const partners = document.querySelector('.partners');
+    const partnersSlider = document.querySelector('.partners-slider');
     let positionPartners = 0;
     const slidePartners = document.querySelectorAll('.partners-slider__slide');
 
+    const slideHeight = slidePartners[0].getBoundingClientRect().height;
+    partnersSlider.style.height = `${slideHeight}px`;
+    partnersSlider.style.minHeight = `${slideHeight}px`;
+
     partners.addEventListener('click', (event) => {
         const target = event.target;
-        const slideHeight = slidePartners[0].getBoundingClientRect().height;
+        
         if (target.closest('#partners-arrow_left') || target.closest('#partners-arrow_right')) {
             if (target.closest('#partners-arrow_left')) {
                 if (positionPartners > 0) {

@@ -48,8 +48,15 @@ const showSlider = () => {
     const documentPopupCounter = document.querySelector('#transparency-popup-counter');
     const documentPopupTotal = documentPopupCounter.querySelector('.slider-counter-content__total');
     const documentPopupCurrent = documentPopupCounter.querySelector('.slider-counter-content__current');
+    const documentWrap = document.querySelector('.transparency-slider-wrap');    
     let positionDocumentPopup = 0;
-    documentPopupTotal.innerHTML = slideDocumentPopup.length;    
+    documentPopupTotal.innerHTML = slideDocumentPopup.length;
+
+    const documentsHeight = slideDocument[0].getBoundingClientRect().height;
+    if (screen.width < 1091){
+        documentWrap.style.height = `${documentsHeight}px`;
+        documentWrap.style.minHeight = `${documentsHeight}px`;
+    }
    
     documents.addEventListener('click', (event) => {
         let target = event.target;
