@@ -15,82 +15,112 @@
         right: 549px;
     }
 }
+
 @media (max-width: 576px) {
     .popup-dialog-menu.active {
-       top:100%;
+        top: 100%;
     }
 }
 
-.problems-item-popup.active:before{
-    transform: rotate(180deg);
-    background-size: contain;
-    bottom: -90px;
+
+.transparency-slider.adaptive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
-.formula-item-popup.active:before{
-    transform: rotate(180deg); 
-    background-size: contain;
-}
-.formula-item-popup.active{  
-    top: 90px;   
-}
-.transparency-slider.adaptive{
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     text-align: center;    
-}
-@media (max-width: 1091px){
-    .transparency-slider-wrap{
+
+@media (max-width: 1091px) {
+    .transparency-slider-wrap {
         height: 412px;
         overflow: hidden;
     }
-    .transparency-item{
+
+    .transparency-item {
         padding-bottom: 35px;
     }
 }
-@media (max-width: 700px) {
-.slider-arrow{
-    margin-top: -150px;
-}
-#reviews-arrow_left{
-    left: 0;
-}
-#reviews-arrow_right {
-    right: 0;
-}
-}
-@media (max-width: 575px) {
-    .slider-arrow {
-        margin-top: -250px;
-    }
 
+@media (max-width: 700px) {
     #reviews-arrow_left {
-        left: 40px;
+        margin-top: -150px;
+        left: 0;
     }
 
     #reviews-arrow_right {
+        margin-top: -150px;
+        right: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    #reviews-arrow_left {
+        margin-top: -250px;
+        left: 40px;
+    }
+    #reviews-arrow_right {
+        margin-top: -250px;
         right: 40px;
     }
 }
-.partners-slider{    
+
+.partners-slider {
     height: 153px;
     overflow: hidden;
-    /*margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;*/
 }
-/*.partners-slider__slide{
-    flex-basis: 30%;
-}*/
-#portfolio-arrow-mobile_right{
-    z-index:99;
+
+#portfolio-arrow-mobile_right {
+    z-index: 99;
 }
+
 #portfolio-arrow-mobile_left {
     z-index: 99;
 }
-.popup-repair-types-nav__item.active{
+
+.popup-repair-types-nav__item.active {
     border: 3px solid #F48922 !important;
+}
+
+.formula-item-popup.active:before {
+    content: '';
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    z-index: -1;
+}
+
+.formula-item-popup.active {
+    visibility: hidden;
+    opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    .formula-slider {
+        /*min-height: 110px;
+        height: 110px;*/
+        overflow: hidden;
+        margin-top: 30px;
+    }
+
+    .formula-slider__slide {
+        opacity: 1;
+    }
+    #formula-arrow_right {
+        right: 150px;
+        top: 180px;
+    }
+    #formula-arrow_left {
+        left: 150px;
+        top: 180px;
+    }
+}
+@media (max-width: 500px){
+    #formula-arrow_right {
+        right: 100px;
+        top: 180px;
+    }
+
+    #formula-arrow_left {
+        left: 100px;
+        top: 180px;
+    }
 }

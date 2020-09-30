@@ -18,9 +18,9 @@ import toggleMenu from "./modules/toggleMenu.js";
 import repairPopup from "./modules/repairPopup.js";
 import repairSlider from "./modules/repairSlider.js";
 import sendForm from "./modules/sendForm.js";
+import phoneValidator from "./modules/phoneValidator.js";
 
 import portfolioSlider from "./modules/portfolioSlider.js";
-import phoneValidator from "./modules/phoneValidator.js";
 import showHint from "./modules/showHint.js";
 import partnersSlider from "./modules/partnersSlider.js";
 
@@ -36,11 +36,12 @@ toggleMenu();
 repairPopup();
 repairSlider();
 sendForm();
+phoneValidator();
 
 portfolioSlider();
-phoneValidator();
 showHint();
 partnersSlider();
+
 
 
 
