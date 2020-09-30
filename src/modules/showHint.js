@@ -4,8 +4,8 @@ const showHint = () => {
     const formulaSlide = document.querySelectorAll('.formula-slider__slide');
     const formulaSlider = document.querySelector('.formula-slider');
     const formulaMobile = formula.querySelector('.desktop-hide');
-    const formulaPopup = formulaMobile.querySelectorAll('.formula-item-popup');
-    let positionFormula = 0;
+    const formulaPopup = formulaMobile.querySelectorAll('.formula-item-popup'); 
+    let positionFormula = 0;  
 
     const problem = document.querySelector('.problems');
     const problemItem = document.querySelectorAll('.svg-wrap');
@@ -15,19 +15,28 @@ const showHint = () => {
     const show = (items) => {
         items.forEach((item) => {
             const inner = item.previousElementSibling;
-            const hint = inner.previousElementSibling;
-            item.addEventListener('mouseover', () => {
+            const hint = inner.previousElementSibling;  
+            let row;          
+            item.addEventListener('mouseover', (event) => {
+                let target=event.target;
                 inner.classList.add('active-item');
-                if (hint.getBoundingClientRect().top > 0) {
-                    hint.style.visibility = 'visible';
-                    hint.style.opacity = '1';
-                }
+                hint.style.visibility = 'visible';
+                hint.style.opacity = '1';
+                if (hint.getBoundingClientRect().top < 0) {
+                    row = target.closest('.row');
+                    hint.classList.add('active-item');
+                    row.classList.add('active');                    
+                }               
+               
             });
-            item.addEventListener('mouseout', () => {
+            item.addEventListener('mouseout', () => {               
                 inner.classList.remove('active-item');
                 hint.style.visibility = '';
                 hint.style.opacity = '';
-
+                if(row!==undefined){
+                    row.classList.remove('active');
+                    hint.classList.remove('active-item');
+                }  
             });
         });
     };

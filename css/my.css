@@ -124,3 +124,17 @@
         top: 180px;
     }
 }
+.formula-item-popup.active-item {
+    padding-top: 40px;
+    top: 150px
+}
+.formula-item-popup.active-item::before {
+    transform: rotateX(180deg)
+}
+.row.active{
+    z-index: 1;
+}
+
+
+
+
