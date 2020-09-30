@@ -27,9 +27,8 @@ const repairPopup = () => {
                 if (key === 'title') {
                     let newBtn = document.createElement('button');
                     newBtn.classList.add('button_o');
-                    newBtn.classList.add('popup-repair-types-nav__item');
-                    newBtn.classList.add('active');
-                    newBtn.textContent = item[key];
+                    newBtn.classList.add('popup-repair-types-nav__item');                    
+                    newBtn.textContent = item[key];                   
                     popupRepairNav.append(newBtn);
                 }
             }
@@ -45,21 +44,27 @@ const repairPopup = () => {
         tableContent.append(newTable);
         let newTbody = document.createElement('tbody');
         newTbody.classList.add('popup-repair-tbody');
-        newTable.append(newTbody);
+        newTable.append(newTbody); 
     };
 
     const getContent = (data, str) => {
         let price = [];
-        data.forEach((item) => {
+        const btn = document.querySelectorAll('.popup-repair-types-nav__item');
+        btn.forEach((item)=>{
+            item.classList.remove('active');
+        });
+        data.forEach((item,index) => {
             for (let key in item) {
                 if (key === 'title') {
                     if (item[key] === str) {
                         price = item.priceList;
-                    }
+                        btn[index-1].classList.add('active');
+                    }  
                 }
             }
         });
         const table = document.querySelector('.popup-repair-tbody');
+        
         price.forEach((item) => {
             let newTr = document.createElement('tr');
             newTr.classList.add('mobile-row');

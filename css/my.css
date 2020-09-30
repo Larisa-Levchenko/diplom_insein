@@ -91,3 +91,6 @@
 #portfolio-arrow-mobile_left {
     z-index: 99;
 }
+.popup-repair-types-nav__item.active{
+    border: 3px solid #F48922 !important;
+}
