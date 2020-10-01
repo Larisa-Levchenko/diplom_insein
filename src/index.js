@@ -19,10 +19,12 @@ import repairPopup from "./modules/repairPopup.js";
 import repairSlider from "./modules/repairSlider.js";
 import sendForm from "./modules/sendForm.js";
 import phoneValidator from "./modules/phoneValidator.js";
+import partnersSlider from "./modules/partnersSlider.js";
+import showHint from "./modules/showHint.js";
 
 import portfolioSlider from "./modules/portfolioSlider.js";
-import showHint from "./modules/showHint.js";
-import partnersSlider from "./modules/partnersSlider.js";
+
+
 
 showPhone();
 showPopup();
@@ -37,10 +39,12 @@ repairPopup();
 repairSlider();
 sendForm();
 phoneValidator();
+partnersSlider();
+showHint();
 
 portfolioSlider();
-showHint();
-partnersSlider();
+
+
 
 
 

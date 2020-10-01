@@ -19,16 +19,16 @@ const showPopup = () => {
         popupDesign.style.visibility = 'visible';
       }
     } else {
-      if (target.closest('.popup-dialog-privacy') === null) {
+      if (target.closest('.popup-dialog-privacy') === null || target.closest('.close') !== null) {
         popupPrivacy.style.visibility = '';
       }
-      if (target.closest('.feedback-wrap') === null || target.closest('.close-consultation') !== null) {
+      if (target.closest('.feedback-wrap') === null || target.closest('.close') !== null) {
         popupConsultation.style.visibility = '';
       }
-      if (target.closest('.popup-dialog-design') === null) {
+      if (target.closest('.popup-dialog-design') === null || target.closest('.close') !== null) {
         popupDesign.style.visibility = '';
       }
-      if (target.closest('.popup-thank-content') === null) {
+      if (target.closest('.popup-thank-content') === null || target.closest('.close') !== null) {
         popupThank.style.visibility = '';
       }
     }

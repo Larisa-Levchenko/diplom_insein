@@ -31,8 +31,7 @@
 }
 
 @media (max-width: 1091px) {
-    .transparency-slider-wrap {
-        /*height: 412px;*/
+    .transparency-slider-wrap {       
         overflow: hidden;
     }
 
@@ -128,6 +127,13 @@
     top: 150px
 }
 .formula-item-popup.active-item::before {
+    transform: rotateX(180deg)
+}
+.problems-item-popup.active-item {
+    padding-top: 40px;
+    top: 150px
+}
+.problems-item-popup.active-item::before {
     transform: rotateX(180deg)
 }
 .row.active{

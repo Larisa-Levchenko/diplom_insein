@@ -82,7 +82,7 @@ const showSlider = () => {
 
     documentsPopup.addEventListener('click', (event) => {
         const target = event.target;
-        if (target.closest('.popup-dialog-transparency') === null) {
+        if (target.closest('.popup-dialog-transparency') === null || target.closest('.close') !== null) {
             documentsPopup.style.visibility = '';
         }
         positionDocumentPopup = slider(

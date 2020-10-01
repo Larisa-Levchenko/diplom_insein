@@ -45,7 +45,7 @@ const sendForm = () => {
                 formData.forEach((value, key) => {
                     body[key] = value;
                 });
-
+                
                 postDate(
                     body,
                     () => {
@@ -55,6 +55,7 @@ const sendForm = () => {
                         console.log('error:', error);
                     }
                 );
+                checkbox.checked = false;
             }
 
         });

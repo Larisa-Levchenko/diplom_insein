@@ -18,17 +18,22 @@ const portfolioSlider = () => {
     portfolioTotal.innerHTML = slidePortfolioMobile.length;
 
     const portfolioPopup = document.querySelector('.popup-portfolio');
+    const portfolioPopupSlider = document.querySelector('.popup-dialog-portfolio');
     const portfolioPopupSlide = document.querySelectorAll('.popup-portfolio-slider__slide');
     const portfolioPopupText = document.querySelectorAll('.popup-portfolio-text');
-    //const portfolioPopupArrowLeft = document.getElementById('popup_design_left');
-    //const portfolioPopupArrowRight = document.getElementById('popup_design_right');
-    let positionPortfolioPopup;
+    const portfolioPopupTotal = portfolioPopup.querySelector('.slider-counter-content__total');
+    const portfolioPopupCurrent = portfolioPopup.querySelector('.slider-counter-content__current');
+    const portfolioPopupArrowLeft = document.getElementById('popup_portfolio_left');
+    const portfolioPopupArrowRight = document.getElementById('popup_portfolio_right');
+    let positionPortfolioPopup = 0;
+    portfolioPopupTotal.innerHTML = portfolioPopupSlide.length;
+
 
     const transformPopup = (position) => {
         const slideHeight = portfolioPopupSlide[0].getBoundingClientRect().height;
         portfolioPopupSlide.forEach((item) => {
             item.style.transform = `translateY(-${position*slideHeight}px)`;
-        });       
+        });
         portfolioPopupText.forEach((item, index) => {
             if (index === position) {
                 item.style.display = 'block';
@@ -36,7 +41,7 @@ const portfolioSlider = () => {
                 item.style.display = 'none';
             }
 
-        });       
+        });
     };
 
     portfolio.addEventListener('click', (event) => {
@@ -100,46 +105,49 @@ const portfolioSlider = () => {
 
         } else if (target.closest('.portfolio-slider__slide-frame') !== null) {
             portfolioPopup.style.visibility = 'visible';
-            if (screen.width > 574) {
+            if (screen.width > 1024) {
                 slidePortfolio.forEach((item, index) => {
                     if (item === target) {
-                        positionPortfolioPopup=index;
+                        positionPortfolioPopup = index;
                         transformPopup(positionPortfolioPopup);
-                        //portfolioPopupArrowLeft.style.visibility = 'visible';
-                        //portfolioPopupArrowRight.style.visibility = 'visible';
-                        //portfolioPopupArrowRight.style.pointerEvents='auto';
-                        
                     }
                 });
+            } else {
+
             }
         }
     });
 
+    portfolioPopupSlider.style.overflow = 'hidden';
+    const slideHeight = portfolioPopupSlide[0].getBoundingClientRect().height;
+    portfolioPopupSlider.style.height = `${slideHeight}px`;
+
     portfolioPopup.addEventListener('click', (event) => {
         const target = event.target;
-        if (target.closest('.popup-dialog-portfolio') === null) {
-            portfolioPopup.style.visibility = '';           
+        const slideHeight = portfolioPopupSlide[0].getBoundingClientRect().height;
+        if (target.closest('.popup-dialog-portfolio') === null || target.closest('.close') !== null) {
+            portfolioPopup.style.visibility = '';
         }
-        
-        //if (target.closest('#popup_design_left') !== null) {
-           
-        //    if (positionPortfolioPopup>0){
-        //        positionPortfolioPopup--;
-                
-        //        transformPopup(positionPortfolioPopup);
-        //    }
 
-        //}
-        //if (target.closest('.popup-arrow_right') !== null) {
-        //     console.log('j');
-        //    if (positionPortfolioPopup < portfolioPopupSlide.length-1) {
-        //        positionPortfolioPopup++;
-        //        transformPopup(positionPortfolioPopup);
-        //    }
+        if (target.closest('#popup_portfolio_left') !== null || target.closest('#popup_portfolio_right') !== null) {
+            if (target.closest('#popup_portfolio_left') !== null) {
+                if (positionPortfolioPopup > 0) {
+                    positionPortfolioPopup--;
+                }
+            }
+            if (target.closest('#popup_portfolio_right') !== null) {
+                console.log('h');
+                if (positionPortfolioPopup < portfolioPopupSlide.length - 1) {
+                    positionPortfolioPopup++;
+                }
+            }
+            portfolioPopupCurrent.innerHTML = positionPortfolioPopup + 1;
+            portfolioPopupSlide.forEach((item) => {
+                item.style.transform = `translateY(-${
+              slideHeight*positionPortfolioPopup}px`;
+            });
+        }
 
-        //}
     });
-
-
 };
 export default portfolioSlider;
